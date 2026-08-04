@@ -1,0 +1,78 @@
+# Build output directories
+Debug/
+Release/
+x64/
+ARM64/
+ARM/
+Win32/
+
+# MSBuild intermediate files
+*.tlog
+*.log
+*.lastbuildstate
+*.unsuccessfulbuild
+*.obj
+*.pdb
+*.ilk
+*.exp
+*.lib
+*.map
+*.idb
+*.VC.db
+*.VC.VC.opendb
+
+# Driver build artifacts
+*.sys
+*.cat
+*.sdv
+*.dvl.xml
+sdv-map.h
+sdv-rules/
+StaticDv/
+DVL*.xml
+analysis/
+
+# Visual Studio IDE files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.vcxproj.filters.bak
+
+# IntelliSense and Browse databases
+*.ncb
+*.opensdf
+*.sdf
+*.psess
+*.vspx
+*.vssettings
+
+# NuGet packages
+packages/
+*.nupkg
+
+# Windows thumbnail cache
+Thumbs.db
+
+# Crash dumps
+*.dmp
+
+*.aps
+
+# Misc files
+original
+reveng
+win-sdk
+fake-fw-dev-build
+
+*.etl
+
+test-results.txt
+
+# Dynamically generated
+version.h
+dist
+photonic.txt*
+
+captured_frames
