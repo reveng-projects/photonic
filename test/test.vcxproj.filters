@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\pixelink">
+      <UniqueIdentifier>{a1b2c3d4-0001-4a5b-9c2d-7e8f90123456}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\directshow">
+      <UniqueIdentifier>{a1b2c3d4-0002-4a5b-9c2d-7e8f90123456}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ioctl">
+      <UniqueIdentifier>{a1b2c3d4-0003-4a5b-9c2d-7e8f90123456}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\utils">
+      <UniqueIdentifier>{a1b2c3d4-0004-4a5b-9c2d-7e8f90123456}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="test.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\log.cpp">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\pngwriter.cpp">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="ioctl\i2c.cpp">
+      <Filter>Source Files\ioctl</Filter>
+    </ClCompile>
+    <ClCompile Include="ioctl\ioctl.cpp">
+      <Filter>Source Files\ioctl</Filter>
+    </ClCompile>
+    <ClCompile Include="ioctl\capture.cpp">
+      <Filter>Source Files\ioctl</Filter>
+    </ClCompile>
+    <ClCompile Include="ioctl\concurrency.cpp">
+      <Filter>Source Files\ioctl</Filter>
+    </ClCompile>
+    <ClCompile Include="directshow\finddevice.cpp">
+      <Filter>Source Files\directshow</Filter>
+    </ClCompile>
+    <ClCompile Include="directshow\directshow.cpp">
+      <Filter>Source Files\directshow</Filter>
+    </ClCompile>
+    <ClCompile Include="directshow\format_names.cpp">
+      <Filter>Source Files\directshow</Filter>
+    </ClCompile>
+    <ClCompile Include="directshow\graph_utils.cpp">
+      <Filter>Source Files\directshow</Filter>
+    </ClCompile>
+    <ClCompile Include="directshow\image_controls.cpp">
+      <Filter>Source Files\directshow</Filter>
+    </ClCompile>
+    <ClCompile Include="directshow\sweep.cpp">
+      <Filter>Source Files\directshow</Filter>
+    </ClCompile>
+    <ClCompile Include="directshow\sweep_types.cpp">
+      <Filter>Source Files\directshow</Filter>
+    </ClCompile>
+    <ClCompile Include="directshow\inspect_input_pin.cpp">
+      <Filter>Source Files\directshow</Filter>
+    </ClCompile>
+    <ClCompile Include="directshow\inspect_enum_pins.cpp">
+      <Filter>Source Files\directshow</Filter>
+    </ClCompile>
+    <ClCompile Include="directshow\inspect_renderer.cpp">
+      <Filter>Source Files\directshow</Filter>
+    </ClCompile>
+    <ClCompile Include="pixelink\pixelink.cpp">
+      <Filter>Source Files\pixelink</Filter>
+    </ClCompile>
+    <ClCompile Include="pixelink\framework.cpp">
+      <Filter>Source Files\pixelink</Filter>
+    </ClCompile>
+    <ClCompile Include="pixelink\acquisition.cpp">
+      <Filter>Source Files\pixelink</Filter>
+    </ClCompile>
+    <ClCompile Include="pixelink\enumerate.cpp">
+      <Filter>Source Files\pixelink</Filter>
+    </ClCompile>
+    <ClCompile Include="pixelink\deviceinfo.cpp">
+      <Filter>Source Files\pixelink</Filter>
+    </ClCompile>
+    <ClCompile Include="pixelink\framerate.cpp">
+      <Filter>Source Files\pixelink</Filter>
+    </ClCompile>
+    <ClCompile Include="pixelink\pixelformat.cpp">
+      <Filter>Source Files\pixelink</Filter>
+    </ClCompile>
+    <ClCompile Include="pixelink\subwindow.cpp">
+      <Filter>Source Files\pixelink</Filter>
+    </ClCompile>
+    <ClCompile Include="pixelink\timeout.cpp">
+      <Filter>Source Files\pixelink</Filter>
+    </ClCompile>
+    <ClCompile Include="pixelink\trigger.cpp">
+      <Filter>Source Files\pixelink</Filter>
+    </ClCompile>
+    <ClCompile Include="pixelink\feature.cpp">
+      <Filter>Source Files\pixelink</Filter>
+    </ClCompile>
+    <ClCompile Include="pixelink\i2c.cpp">
+      <Filter>Source Files\pixelink</Filter>
+    </ClCompile>
+    <ClCompile Include="pixelink\formatimage.cpp">
+      <Filter>Source Files\pixelink</Filter>
+    </ClCompile>
+    <ClCompile Include="pixelink\stream.cpp">
+      <Filter>Source Files\pixelink</Filter>
+    </ClCompile>
+    <ClCompile Include="pixelink\preview.cpp">
+      <Filter>Source Files\pixelink</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="utils\log.h">
+      <Filter>Source Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\pngwriter.h">
+      <Filter>Source Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="ioctl\i2c.h">
+      <Filter>Source Files\ioctl</Filter>
+    </ClInclude>
+    <ClInclude Include="ioctl\concurrency.h">
+      <Filter>Source Files\ioctl</Filter>
+    </ClInclude>
+    <ClInclude Include="ioctl\ioctl.h">
+      <Filter>Source Files\ioctl</Filter>
+    </ClInclude>
+    <ClInclude Include="directshow\finddevice.h">
+      <Filter>Source Files\directshow</Filter>
+    </ClInclude>
+    <ClInclude Include="directshow\format_names.h">
+      <Filter>Source Files\directshow</Filter>
+    </ClInclude>
+    <ClInclude Include="directshow\graph_utils.h">
+      <Filter>Source Files\directshow</Filter>
+    </ClInclude>
+    <ClInclude Include="directshow\image_controls.h">
+      <Filter>Source Files\directshow</Filter>
+    </ClInclude>
+    <ClInclude Include="directshow\sweep.h">
+      <Filter>Source Files\directshow</Filter>
+    </ClInclude>
+    <ClInclude Include="directshow\sweep_types.h">
+      <Filter>Source Files\directshow</Filter>
+    </ClInclude>
+    <ClInclude Include="pixelink.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\util.h">
+      <Filter>Source Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="directshow\comptr.h">
+      <Filter>Source Files\directshow</Filter>
+    </ClInclude>
+    <ClInclude Include="directshow\samplegrabber.h">
+      <Filter>Source Files\directshow</Filter>
+    </ClInclude>
+    <ClInclude Include="directshow\framestats.h">
+      <Filter>Source Files\directshow</Filter>
+    </ClInclude>
+    <ClInclude Include="directshow\mediatype.h">
+      <Filter>Source Files\directshow</Filter>
+    </ClInclude>
+    <ClInclude Include="directshow\inspect_input_pin.h">
+      <Filter>Source Files\directshow</Filter>
+    </ClInclude>
+    <ClInclude Include="directshow\inspect_enum_pins.h">
+      <Filter>Source Files\directshow</Filter>
+    </ClInclude>
+    <ClInclude Include="directshow\inspect_renderer.h">
+      <Filter>Source Files\directshow</Filter>
+    </ClInclude>
+    <ClInclude Include="pixelink\framework.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\version.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

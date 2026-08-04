@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{5139f9ec-d5c7-481e-bbcd-89c36e728436}</ProjectGuid>
+    <RootNamespace>test</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140_xp</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140_xp</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;STRSAFE_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;STRSAFE_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ResourceCompile Include="test.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="utils\log.cpp" />
+    <ClCompile Include="utils\pngwriter.cpp" />
+    <ClCompile Include="ioctl\i2c.cpp" />
+    <ClCompile Include="ioctl\ioctl.cpp" />
+    <ClCompile Include="ioctl\capture.cpp" />
+    <ClCompile Include="ioctl\concurrency.cpp" />
+    <ClCompile Include="directshow\directshow.cpp" />
+    <ClCompile Include="directshow\finddevice.cpp" />
+    <ClCompile Include="directshow\format_names.cpp" />
+    <ClCompile Include="directshow\graph_utils.cpp" />
+    <ClCompile Include="directshow\image_controls.cpp" />
+    <ClCompile Include="directshow\sweep.cpp" />
+    <ClCompile Include="directshow\sweep_types.cpp" />
+    <ClCompile Include="directshow\inspect_input_pin.cpp" />
+    <ClCompile Include="directshow\inspect_enum_pins.cpp" />
+    <ClCompile Include="directshow\inspect_renderer.cpp" />
+    <ClCompile Include="pixelink\pixelink.cpp" />
+    <ClCompile Include="pixelink\framework.cpp" />
+    <ClCompile Include="pixelink\acquisition.cpp" />
+    <ClCompile Include="pixelink\enumerate.cpp" />
+    <ClCompile Include="pixelink\deviceinfo.cpp" />
+    <ClCompile Include="pixelink\framerate.cpp" />
+    <ClCompile Include="pixelink\pixelformat.cpp" />
+    <ClCompile Include="pixelink\subwindow.cpp" />
+    <ClCompile Include="pixelink\timeout.cpp" />
+    <ClCompile Include="pixelink\trigger.cpp" />
+    <ClCompile Include="pixelink\feature.cpp" />
+    <ClCompile Include="pixelink\i2c.cpp" />
+    <ClCompile Include="pixelink\formatimage.cpp" />
+    <ClCompile Include="pixelink\stream.cpp" />
+    <ClCompile Include="pixelink\preview.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="utils\log.h" />
+    <ClInclude Include="utils\pngwriter.h" />
+    <ClInclude Include="ioctl\i2c.h" />
+    <ClInclude Include="ioctl\ioctl.h" />
+    <ClInclude Include="ioctl\concurrency.h" />
+    <ClInclude Include="directshow\finddevice.h" />
+    <ClInclude Include="directshow\format_names.h" />
+    <ClInclude Include="directshow\graph_utils.h" />
+    <ClInclude Include="directshow\image_controls.h" />
+    <ClInclude Include="directshow\sweep.h" />
+    <ClInclude Include="directshow\sweep_types.h" />
+    <ClInclude Include="pixelink.h" />
+    <ClInclude Include="utils\util.h" />
+    <ClInclude Include="directshow\comptr.h" />
+    <ClInclude Include="directshow\samplegrabber.h" />
+    <ClInclude Include="directshow\framestats.h" />
+    <ClInclude Include="..\common\frame_meta.h" />
+    <ClInclude Include="directshow\mediatype.h" />
+    <ClInclude Include="directshow\inspect_input_pin.h" />
+    <ClInclude Include="directshow\inspect_enum_pins.h" />
+    <ClInclude Include="directshow\inspect_renderer.h" />
+    <ClInclude Include="pixelink\framework.h" />
+    <ClInclude Include="..\version.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
