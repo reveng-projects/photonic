@@ -1,0 +1,152 @@
+;
+; photonic.inf -- Installation information for Photonic IEEE 1394 camera.
+;
+; Targets:
+;   - Windows XP and later (x86, 32-bit)
+;   - Windows 10 / 11      (x64, ARM64)
+;
+; All architectures copy the driver to system32\drivers (dirid 12).
+;
+
+[Version]
+signature   = "$Windows NT$"
+CatalogFile = photonic.cat
+Class       = Image
+ClassGUID   = {6bdd1fc6-810f-11d0-bec7-08002be2092f}
+Provider    = %Corp%
+DriverVer   = 05/24/2026,2.0.0.0
+; PnpLockdown is honored on Windows 8 and later and ignored on XP.
+PnpLockdown = 1
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[Manufacturer]
+%Mfg% = Vitana,NTx86,NTamd64,NTarm64
+
+; Each model lists two hardware IDs. The Windows 1394 bus driver builds the
+; textual ID 1394\<vendor>&<model> from the config ROM, taking the vendor
+; name from the textual leaf in the ROM's root directory. On the real camera
+; that leaf reads "Vitana". On the emulated camera (fake-fw-dev) the root
+; directory is owned by the Linux firewire-core kernel module, which fills
+; the vendor leaf with "Linux Firewire" and does not let user space override
+; it. The Linux_Firewire& ID therefore matches the emulated camera, so the
+; driver installs on it without a modified INF.
+
+[Vitana.NTx86]
+%FriendlyName% = Photonic.1394DCam.x86,1394\Vitana&PixeLINK(tm)_-_Photonic,1394\Linux_Firewire&PixeLINK(tm)_-_Photonic
+
+[Vitana.NTamd64]
+%FriendlyName% = Photonic.1394DCam,1394\Vitana&PixeLINK(tm)_-_Photonic,1394\Linux_Firewire&PixeLINK(tm)_-_Photonic
+
+[Vitana.NTarm64]
+%FriendlyName% = Photonic.1394DCam,1394\Vitana&PixeLINK(tm)_-_Photonic,1394\Linux_Firewire&PixeLINK(tm)_-_Photonic
+
+[DestinationDirs]
+; dirid 12 = system32\drivers
+Photonic.1394DCam.CopyDrivers = 12
+
+[SourceDisksNames]
+1 = %DiskName%
+
+[SourceDisksFiles]
+photonic.sys = 1
+
+;---------------------------------------------------------------
+; Photonic 1394 DCam -- x86
+;---------------------------------------------------------------
+
+[Photonic.1394DCam.x86.NTx86]
+Include    = ks.inf,kscaptur.inf,ksfilter.inf
+Needs      = KS.Registration,KSCAPTUR.Registration.NT,MSPCLOCK.Installation
+AddReg     = Photonic.1394DCam.AddReg
+CopyFiles  = Photonic.1394DCam.CopyDrivers
+
+[Photonic.1394DCam.x86.NTx86.Interfaces]
+AddInterface = %KSCATEGORY_CAPTURE%,GLOBAL,Photonic.1394DCam.Interface
+AddInterface = %KSCATEGORY_VIDEO%,GLOBAL,Photonic.1394DCam.Interface
+
+[Photonic.1394DCam.x86.NTx86.Services]
+AddService = photonic,%SPSVCINST_ASSOCSERVICE%,Photonic.ServiceInstall
+
+;---------------------------------------------------------------
+; Photonic 1394 DCam -- x64
+;---------------------------------------------------------------
+
+[Photonic.1394DCam.NTamd64]
+Include    = ks.inf,kscaptur.inf,ksfilter.inf
+Needs      = KS.Registration,KSCAPTUR.Registration.NT,MSPCLOCK.Installation
+AddReg     = Photonic.1394DCam.AddReg
+CopyFiles  = Photonic.1394DCam.CopyDrivers
+
+[Photonic.1394DCam.NTamd64.Interfaces]
+AddInterface = %KSCATEGORY_CAPTURE%,GLOBAL,Photonic.1394DCam.Interface
+AddInterface = %KSCATEGORY_VIDEO%,GLOBAL,Photonic.1394DCam.Interface
+
+[Photonic.1394DCam.NTamd64.Services]
+AddService = photonic,%SPSVCINST_ASSOCSERVICE%,Photonic.ServiceInstall
+
+;---------------------------------------------------------------
+; Photonic 1394 DCam -- ARM64
+;---------------------------------------------------------------
+
+[Photonic.1394DCam.NTarm64]
+Include    = ks.inf,kscaptur.inf,ksfilter.inf
+Needs      = KS.Registration,KSCAPTUR.Registration.NT,MSPCLOCK.Installation
+AddReg     = Photonic.1394DCam.AddReg
+CopyFiles  = Photonic.1394DCam.CopyDrivers
+
+[Photonic.1394DCam.NTarm64.Interfaces]
+AddInterface = %KSCATEGORY_CAPTURE%,GLOBAL,Photonic.1394DCam.Interface
+AddInterface = %KSCATEGORY_VIDEO%,GLOBAL,Photonic.1394DCam.Interface
+
+[Photonic.1394DCam.NTarm64.Services]
+AddService = photonic,%SPSVCINST_ASSOCSERVICE%,Photonic.ServiceInstall
+
+;---------------------------------------------------------------
+; Shared sections
+;---------------------------------------------------------------
+
+[Photonic.1394DCam.AddReg]
+; No legacy DevLoader / NTMPDriver keys required on Windows 10+.
+
+[Photonic.1394DCam.CopyDrivers]
+photonic.sys
+
+[Photonic.1394DCam.Interface]
+AddReg = Photonic.1394DCam.Intf.AddReg
+
+[Photonic.1394DCam.Intf.AddReg]
+HKR,,CLSID,,%ProxyVCap.CLSID%
+HKR,,FriendlyName,,%FriendlyName%
+
+[Photonic.ServiceInstall]
+DisplayName   = %FriendlyName%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %12%\photonic.sys
+
+[Strings]
+
+;----------------
+; Non-Localizable
+;----------------
+
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+
+ProxyVCap.CLSID    = "{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
+KSCATEGORY_CAPTURE = "{65E8773D-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_VIDEO   = "{6994AD05-93EF-11D0-A3CC-00A0C9223196}"
+
+;----------------
+; Localizable
+;----------------
+
+DiskName       = "Photonic Camera Installation Disk"
+Mfg            = "Vitaly Chipounov"
+Corp           = "Vitaly Chipounov"
+FriendlyName = "Photonic Camera"

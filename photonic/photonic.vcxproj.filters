@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\ioctl">
+      <UniqueIdentifier>{2B6BF3A4-51D0-4E23-9C1B-7A85E60F41D2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\stream">
+      <UniqueIdentifier>{74007220-9380-4018-9224-65640DA61C27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\capture">
+      <UniqueIdentifier>{A3C2E7D1-5B94-4F60-8D27-1E6B93AC50F8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Driver Files">
+      <UniqueIdentifier>{8E41214B-6785-4CFE-B992-037D68949A14}</UniqueIdentifier>
+      <Extensions>inf;inv;inx;mof;mc;</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Inf Include="photonic.inf">
+      <Filter>Driver Files</Filter>
+    </Inf>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="photonic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="trace.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="return_code.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ioctl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="p1394.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dcam.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="capture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="properties.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ioctl\ioctl_private.h">
+      <Filter>Source Files\ioctl</Filter>
+    </ClInclude>
+    <ClInclude Include="stream\stream_private.h">
+      <Filter>Source Files\stream</Filter>
+    </ClInclude>
+    <ClInclude Include="capture\capture_private.h">
+      <Filter>Source Files\capture</Filter>
+    </ClInclude>
+    <ClInclude Include="..\version.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="photonic.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="driver.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stream\formats.c">
+      <Filter>Source Files\stream</Filter>
+    </ClCompile>
+    <ClCompile Include="stream\intersect.c">
+      <Filter>Source Files\stream</Filter>
+    </ClCompile>
+    <ClCompile Include="stream\lifecycle.c">
+      <Filter>Source Files\stream</Filter>
+    </ClCompile>
+    <ClCompile Include="stream\control.c">
+      <Filter>Source Files\stream</Filter>
+    </ClCompile>
+    <ClCompile Include="stream\read.c">
+      <Filter>Source Files\stream</Filter>
+    </ClCompile>
+    <ClCompile Include="properties.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dispatch.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ioctl\ioctl.c">
+      <Filter>Source Files\ioctl</Filter>
+    </ClCompile>
+    <ClCompile Include="ioctl\identity.c">
+      <Filter>Source Files\ioctl</Filter>
+    </ClCompile>
+    <ClCompile Include="ioctl\format.c">
+      <Filter>Source Files\ioctl</Filter>
+    </ClCompile>
+    <ClCompile Include="ioctl\frames.c">
+      <Filter>Source Files\ioctl</Filter>
+    </ClCompile>
+    <ClCompile Include="ioctl\video.c">
+      <Filter>Source Files\ioctl</Filter>
+    </ClCompile>
+    <ClCompile Include="ioctl\imager.c">
+      <Filter>Source Files\ioctl</Filter>
+    </ClCompile>
+    <ClCompile Include="ioctl\framerate.c">
+      <Filter>Source Files\ioctl</Filter>
+    </ClCompile>
+    <ClCompile Include="ioctl\trigger.c">
+      <Filter>Source Files\ioctl</Filter>
+    </ClCompile>
+    <ClCompile Include="ioctl\property.c">
+      <Filter>Source Files\ioctl</Filter>
+    </ClCompile>
+    <ClCompile Include="ioctl\mailbox.c">
+      <Filter>Source Files\ioctl</Filter>
+    </ClCompile>
+    <ClCompile Include="p1394.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dcam.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="capture\capture.c">
+      <Filter>Source Files\capture</Filter>
+    </ClCompile>
+    <ClCompile Include="capture\pool.c">
+      <Filter>Source Files\capture</Filter>
+    </ClCompile>
+    <ClCompile Include="capture\pump.c">
+      <Filter>Source Files\capture</Filter>
+    </ClCompile>
+    <ClCompile Include="capture\resource.c">
+      <Filter>Source Files\capture</Filter>
+    </ClCompile>
+    <ClCompile Include="capture\teardown.c">
+      <Filter>Source Files\capture</Filter>
+    </ClCompile>
+    <ClCompile Include="capture\work.c">
+      <Filter>Source Files\capture</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
