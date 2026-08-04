@@ -1,0 +1,14 @@
+name: Build fake device
+on: [pull_request, workflow_dispatch]
+jobs:
+  build-fake-device:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Build fake device
+        run: |
+           set -x
+           cmake -S fake-fw-dev -B fake-fw-dev-build
+           cmake --build fake-fw-dev-build
+      - run: echo "🍏 This job's status is ${{ job.status }}."

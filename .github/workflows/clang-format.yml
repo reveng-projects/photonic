@@ -1,0 +1,24 @@
+name: Check code style
+on: [pull_request, workflow_dispatch]
+jobs:
+  clang-format:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Run clang-format
+        run: |
+           set -x
+           sudo apt-get install clang-format-19
+           ./run-clang-format.sh
+
+           OUTPUT="$(git status --porcelain --untracked-files=no)"
+
+           if [ "x$OUTPUT" = "x" ]; then
+               echo "Code style ok"
+           else
+               git --no-pager diff
+               echo "Please execute run-clang-format.sh to fix code style"
+               exit 1
+           fi
+      - run: echo "🍏 This job's status is ${{ job.status }}."

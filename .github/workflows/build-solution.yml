@@ -1,0 +1,29 @@
+name: Build solution
+on: [pull_request, workflow_dispatch]
+jobs:
+  build-solution:
+    runs-on: windows-2022
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v2
+        with:
+          # The WDK on the runner has no 32-bit InfVerif.dll, so the default
+          # x86 msbuild fails INF verification. Use the 64-bit msbuild.
+          msbuild-architecture: x64
+
+      - name: Build driver
+        # No toolset override here. The driver pins WindowsKernelModeDriver10.0,
+        # which the WDK preinstalled on the runner provides. A global
+        # PlatformToolset override would replace it with the user-mode toolset
+        # and lose the kernel include paths (strmini.h and friends).
+        run: msbuild photonic.sln /t:photonic /p:Configuration=Release /p:Platform=x64
+
+      - name: Build test project
+        # The v140_xp toolset the project pins is not available on hosted
+        # runners, so the build overrides it with v143 for CI purposes.
+        run: msbuild photonic.sln /t:test /p:Configuration=Release /p:Platform=x64 /p:PlatformToolset=v143
+
+      - run: echo "🍏 This job's status is ${{ job.status }}."
